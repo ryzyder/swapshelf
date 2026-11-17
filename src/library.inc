@@ -2708,7 +2708,7 @@ enum OptId { OPT_THEME, OPT_ACCENT, OPT_CONSOLES, OPT_COLS, OPT_ZOOM, OPT_COVERS
 #ifndef __SWITCH__
              OPT_FULLSCREEN,
 #endif
-             OPT_LANG, OPT_ROMS, OPT_RESCAN, OPT_ABOUT, OPT_COUNT };
+             OPT_LANG, OPT_UPDATE, OPT_ROMS, OPT_RESCAN, OPT_ABOUT, OPT_COUNT };
 
 static void optValue(struct App* a, int id, char* out, size_t n) {
 	const struct Settings* c = &a->cfg;
@@ -2725,6 +2725,7 @@ static void optValue(struct App* a, int id, char* out, size_t n) {
 	case OPT_COLS: snprintf(out, n, "%d", c->gridCols); break;
 	case OPT_ZOOM: snprintf(out, n, "%d %%", c->gridZoom); break;
 	case OPT_RESUME: snprintf(out, n, "%s", c->resume ? T("S\xC3\xAD") : T("No")); break;
+	case OPT_UPDATE: snprintf(out, n, "%s", c->autoUpdate ? T("S\xC3\xAD") : T("No")); break;
 	case OPT_COVERS: snprintf(out, n, "%s", c->boxArt ? T("Caja") : T("Pantalla de t\xC3\xADtulo")); break;
 	case OPT_SCALE: snprintf(out, n, "%s", c->scale == SCALE_INTEGER ? T("Entero") : c->scale == SCALE_STRETCH ? T("Estirar") : T("Ajustar")); break;
 	case OPT_BORDER: snprintf(out, n, "%s", c->border == BORDER_BLUR ? T("Difuminado") : c->border == BORDER_BLACK ? T("Negro") : T("Tema")); break;
@@ -2759,6 +2760,7 @@ static const char* optLabel(int id) {
 	case OPT_FULLSCREEN: return T("Pantalla completa");
 #endif
 	case OPT_LANG: return T("Idioma");
+	case OPT_UPDATE: return T("Buscar actualizaciones");
 	case OPT_MUSIC: return T("Volumen de la m\xC3\xBAsica");
 	case OPT_ROMS: return T("Carpeta de juegos");
 	case OPT_RESCAN: return T("Actualizar biblioteca y portadas");
@@ -2788,6 +2790,7 @@ static const char* optHelp(int id) {
 	case OPT_ROMS: return T("D\xC3\xB3nde busca tus juegos, con una carpeta por consola. Se cambia en swapshelf.ini (carpeta_roms=).");
 	case OPT_RESCAN: return T("Vuelve a revisar las carpetas y busca nombres y portadas que falten.");
 	case OPT_LANG: return T("Idioma de los men\xC3\xBAs de SwapShelf.");
+	case OPT_UPDATE: return T("Al abrir, revisa en GitHub si hay una versi\xC3\xB3n nueva y te pregunta antes de instalarla.");
 	case OPT_ABOUT: return T("Versi\xC3\xB3n, autor, licencia y cr\xC3\xA9" "ditos.");
 	default: return "";
 	}
@@ -2819,6 +2822,7 @@ static void optChange(struct App* a, int id, int dir) {
 		snprintf(v, sizeof(v), "%d", c->gridZoom); iniSet("aumento", v);
 		break;
 	case OPT_RESUME: c->resume = !c->resume; iniSet("continuar", c->resume ? "si" : "no"); break;
+	case OPT_UPDATE: c->autoUpdate = !c->autoUpdate; iniSet("actualizar", c->autoUpdate ? "si" : "no"); break;
 	case OPT_COVERS:
 		c->boxArt = !c->boxArt;
 		g_preferBox = c->boxArt;
@@ -3132,6 +3136,8 @@ static int launchGame(struct App* a, int gi) {
 }
 
 /* Bucle de la biblioteca: devuelve el índice elegido o -1 para salir */
+#include "updater.inc"
+
 static int runLibrary(struct App* a) {
 	startMenuMusic(a);
 	{
@@ -3143,6 +3149,7 @@ static int runLibrary(struct App* a) {
 			a->messageUntil = SDL_GetTicks() + 9000;
 		}
 	}
+	updStart(a);  /* una sola vez por sesión, en segundo plano */
 	Uint32 start = SDL_GetTicks();
 	g_listsDirty = true;
 	g_gridCols = a->cfg.gridCols;
@@ -3255,6 +3262,8 @@ static int runLibrary(struct App* a) {
 		}
 		musicPump(a);
 		metaPump(a);
+		updPump(a);
+		if (a->quit) return -1;
 		if (g_listsDirty) { g_listsDirty = false; refreshLists(); }
 		drawLibrary(a, (SDL_GetTicks() - start) / 1000.0f);
 #ifdef SWS_TEST

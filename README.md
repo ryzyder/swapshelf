@@ -9,7 +9,8 @@ Una estantería de cartuchos para tus propias copias de juegos retro, en PC (Win
 - **Biblioteca por consola:** SNES, Genesis, GBA, GBC, GB y NES, cada una en su pestaña y en su carpeta (`Roms/snes`, `Roms/genesis`, `Roms/gba`, `Roms/gbc`, `Roms/gb`, `Roms/nes`).
 - **Identificación por CRC32 y header:** reconoce cada juego por su huella, aunque el archivo tenga otro nombre.
 - **Nombres oficiales (No-Intro):** descarga una vez la base No-Intro de cada consola desde [libretro-database](https://github.com/libretro/libretro-database) y busca el nombre por CRC32. Si el CRC no está pero el código del juego coincide, lo marca como hack o versión modificada del original.
-- **Portadas (TheGamesDB):** busca la portada de la caja (JPG o PNG) por nombre, solo entre los juegos de esa consola y con los lanzamientos oficiales primero. Cada juego se consulta una sola vez y queda guardado. Desde el menú de cada juego (**Y** en Switch, **M** en PC; o **P** directo en PC) se elige la portada a mano entre las coincidencias, con su año y si es oficial, variante o hack.
+- **Portadas (RetroArch y TheGamesDB):** primero busca la portada de la caja en [libretro-thumbnails](https://github.com/libretro-thumbnails) por el nombre No-Intro, sin límite de consultas; si no está, la busca en TheGamesDB entre los juegos de esa consola, con los lanzamientos oficiales primero. Cada juego se consulta una sola vez y queda guardado. Desde el menú de cada juego (**Y** en Switch, **M** en PC; o **P** directo en PC) se elige la portada a mano entre las coincidencias, con su año y si es oficial, variante o hack.
+- **Actualizaciones:** al abrir, si hay internet, revisa si hay una versión nueva en las [Releases](https://github.com/ryzyder/swapshelf/releases) y pregunta antes de instalarla. En Switch descarga el `.nro`, lo reemplaza (el anterior queda como `swapshelf.nro.anterior`) y se vuelve a abrir; en PC avisa dónde bajarla. Se apaga en Opciones o con `actualizar=no`.
 - **Tarjetas tipo cartucho:** banda del color de la consola y etiqueta con un diseño distinto para GBA/GB, SNES y Genesis, con la portada entera y el título.
 - **Animaciones de cartucho:** el cartucho entra en la ranura al jugar y sale al volver a la biblioteca, con sonido.
 - **Filtro Zadark HD:** suavizado de bordes (xBR), color vivo y textura, con niveles en la pausa.
@@ -116,7 +117,7 @@ El ejecutable incluye núcleos GPLv2+ y uno AGPLv3 (clownmdemu); la sección 13 
 - Tipografía del logo: [Inter](https://rsms.me/inter/) Black, de Rasmus Andersson, licencia SIL Open Font License 1.1. El resto de la interfaz usa DejaVu Sans Bold (licencia libre Bitstream Vera / DejaVu).
 - [dr_mp3](https://github.com/mackron/dr_libs), dominio público / MIT-0.
 - Bases No-Intro distribuidas por [libretro-database](https://github.com/libretro/libretro-database).
-- Datos e imágenes de portadas de [TheGamesDB](https://thegamesdb.net).
+- Portadas de [libretro-thumbnails](https://github.com/libretro-thumbnails) (RetroArch) y datos e imágenes de [TheGamesDB](https://thegamesdb.net).
 
 Los nombres de consolas se usan solo para describir con qué juegos funciona SwapShelf. SwapShelf no está afiliado ni respaldado por Nintendo, Sega ni ninguna otra empresa.
 

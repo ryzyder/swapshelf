@@ -96,6 +96,7 @@ struct Settings {
 	char tgdbKey[128];          /* clave de TheGamesDB (vacía = solo nombres, sin portadas) */
 	bool boxArt;                /* portada de la caja en vez de la pantalla de título */
 	bool resume;                /* continuar donde se dejó cada juego */
+	bool autoUpdate;            /* buscar versiones nuevas en GitHub al abrir */
 	int gridCols;               /* cartuchos por fila en cada consola (5-9) */
 	int gridZoom;               /* aumento del cartucho elegido, en % (100-170) */
 	int lang;                   /* LANG_ES, LANG_EN o LANG_PT */
@@ -119,6 +120,7 @@ static void settingsDefault(struct Settings* s) {
 	s->musicVolume = 20;
 	s->boxArt = true;
 	s->resume = true;
+	s->autoUpdate = true;
 	s->gridCols = 7;
 	s->gridZoom = 130;
 #ifdef SWS_TGDB_KEY
@@ -228,6 +230,7 @@ static void settingsLoad(struct Settings* s, const char* path) {
 		else if (!strcmp(k, "por_fila")) s->gridCols = clampi(atoi(v), 5, 9);
 		else if (!strcmp(k, "aumento")) s->gridZoom = clampi(atoi(v), 100, 170);
 		else if (!strcmp(k, "continuar")) s->resume = strcmp(v, "no") != 0 && strcmp(v, "0") != 0;
+		else if (!strcmp(k, "actualizar")) s->autoUpdate = strcmp(v, "no") != 0 && strcmp(v, "0") != 0;
 		else if (!strcmp(k, "tamano_ventana")) s->windowScale = clampi(atoi(v), 1, 10);
 	}
 	fclose(f);
@@ -2307,6 +2310,9 @@ int main(int argc, char** argv) {
 		g_appletMode = at != AppletType_Application && at != AppletType_SystemApplication;
 	}
 	snprintf(g_base, sizeof(g_base), "%s", BASE_DIR);
+	/* el .nro que se está ejecutando (para actualizarlo); desde un forwarder también llega en argv[0] */
+	if (argc > 0 && argv[0] && strstr(argv[0], ".nro")) snprintf(g_nroPath, sizeof(g_nroPath), "%s", argv[0]);
+	else snprintf(g_nroPath, sizeof(g_nroPath), "%s", BASE_DIR "swapshelf.nro");
 	MKDIR("sdmc:/switch");
 	MKDIR(BASE_DIR);
 #else

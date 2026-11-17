@@ -335,6 +335,22 @@ static const char* const TR_TABLE[][3] = {
 	{ "Mejorando portadas %d/%d...", "Improving covers %d/%d...", "Melhorando capas %d/%d..." },
 	{ "%d portada%s nueva%s", "%d new cover%s%.0s", "%d capa%s nova%s" },
 	{ "%d portadas actualizadas con las de RetroArch", "%d covers updated with RetroArch ones", "%d capas atualizadas com as do RetroArch" },
+	{ "Descargando la versi\xC3\xB3n %s: %lld de %lld KB", "Downloading version %s: %lld of %lld KB", "Baixando a vers\xC3\xA3o %s: %lld de %lld KB" },
+	{ "Descargando la versi\xC3\xB3n %s...", "Downloading version %s...", "Baixando a vers\xC3\xA3o %s..." },
+	{ "Actualizando SwapShelf", "Updating SwapShelf", "Atualizando o SwapShelf" },
+	{ "No apagues la consola ni cierres la app.", "Don't turn off the console or close the app.", "N\xC3\xA3o desligue o console nem feche o app." },
+	{ "Hay una versi\xC3\xB3n nueva: %s", "A new version is available: %s", "H\xC3\xA1 uma vers\xC3\xA3o nova: %s" },
+	{ "Tienes la %s. Novedades:", "You have %s. What's new:", "Voc\xC3\xAA tem a %s. Novidades:" },
+	{ "Mejoras y correcciones.", "Improvements and fixes.", "Melhorias e corre\xC3\xA7\xC3\xB5" "es." },
+	{ "B\xC3\xA1jala desde github.com/ryzyder/swapshelf/releases", "Download it from github.com/ryzyder/swapshelf/releases", "Baixe em github.com/ryzyder/swapshelf/releases" },
+	{ "Ahora no", "Not now", "Agora n\xC3\xA3o" },
+	{ "Actualizar", "Update", "Atualizar" },
+	{ "Entendido", "Got it", "Entendi" },
+	{ "No se pudo actualizar. Se sigue usando esta versi\xC3\xB3n.", "Could not update. This version stays in use.", "N\xC3\xA3o foi poss\xC3\xADvel atualizar. Esta vers\xC3\xA3o continua em uso." },
+	{ "Versi\xC3\xB3n %s instalada. Reiniciando...", "Version %s installed. Restarting...", "Vers\xC3\xA3o %s instalada. Reiniciando..." },
+	{ "Listo", "Done", "Pronto" },
+	{ "Buscar actualizaciones", "Check for updates", "Procurar atualiza\xC3\xA7\xC3\xB5" "es" },
+	{ "Al abrir, revisa en GitHub si hay una versi\xC3\xB3n nueva y te pregunta antes de instalarla.", "On launch, checks GitHub for a new version and asks before installing it.", "Ao abrir, verifica no GitHub se h\xC3\xA1 uma vers\xC3\xA3o nova e pergunta antes de instalar." },
 };
 #define TR_COUNT ((int) (sizeof(TR_TABLE) / sizeof(TR_TABLE[0])))
 
