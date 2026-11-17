@@ -1,0 +1,37 @@
+build/
+deps/
+# Nunca subir ROMs, parches de terceros ni partidas
+*.gba
+*.gb
+*.gbc
+*.nes
+*.sfc
+*.smc
+*.gen
+*.smd
+*.bps
+*.ups
+*.ips
+*.sav
+*.estado
+
+# Clave personal de TheGamesDB
+clave_thegamesdb.txt
+salida/
+
+# Juegos y datos del usuario si se prueba desde la carpeta del proyecto
+# (la extensión .md de Genesis no se ignora por nombre para no ocultar README.md)
+Roms/
+Partidas/
+Caratulas/
+Datos/
+Controles/
+biblioteca.txt
+registro.txt
+menu.dat
+*.auto
+*.estado*
+
+# Notas internas de desarrollo (tampoco van en el zip del código)
+AGENTS.md
+RESUMEN*.md

@@ -1,0 +1,24 @@
+ZADARK HD - filtro de Zadark
+============================
+Filtro de aspecto "remasterizado" para juegos 2D (hecho para GBA; sirve en DS y otras consolas).
+
+Hace, en orden:
+ 1. BORDES  - xBR-lv3 (Hyllian) x4 mezclado con el píxel original (niveles 1-4 = 35/40/45/50 %).
+ 2. VIVO    - color remasterizado: realza los colores apagados, contraste suave y toque cálido
+              (1 sutil, 2 natural, 3 vivo, 4 intenso).
+ 3. NITIDEZ - CAS de AMD (0-100).
+ 4. RESPLANDOR - brillo suave solo en lo más claro (0-100).
+ 5. TEXTURA - textura diagonal fina de pantalla, sin oscurecer (1 = sin textura ... 4 = marcada).
+Por defecto: Bordes 2, Vivo 3, Nitidez 60, Resplandor 22, Textura 1.
+
+INSTALAR
+- mGBA: copia la carpeta mgba\zadark-hd.shader dentro de la carpeta "shaders" de mGBA.
+  En mGBA abre las opciones de shaders, "Cargar nuevo shader" y elige la carpeta zadark-hd.shader.
+  Los niveles se ajustan en los parámetros del shader.
+- RetroArch (mGBA, gpSP, DeSmuME, melonDS, SNES...): copia el contenido de la carpeta retroarch
+  en la carpeta "shaders" de RetroArch (por ejemplo shaders\shaders_slang\zadark-hd\).
+  En el juego: Menú rápido > Shaders > Cargar > zadark-hd.slangp. Niveles en "Parámetros del shader".
+  Necesita un controlador de video con slang (Vulkan, glcore, D3D11/12 o Metal).
+
+LICENCIA: MIT (LICENSE.txt). Cualquiera puede usarlo e integrarlo en su emulador o app,
+manteniendo el aviso "Zadark HD by Zadark" y los créditos de xBR (Hyllian) y CAS (AMD).

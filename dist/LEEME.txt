@@ -1,0 +1,73 @@
+SWAPSHELF (SWS) 0.6
+===================
+Lanzador de cartuchos homebrew para Nintendo Switch y PC: SNES, Genesis / Mega Drive,
+GBA, GBC, GB y NES. Gratuito y sin fines comerciales.
+
+SwapShelf NO incluye ni descarga juegos. Usa solo copias de seguridad de cartuchos
+que tengas.
+
+INSTALAR EN SWITCH
+1. Copia la carpeta "swapshelf" a  sdmc:/switch/  (queda sdmc:/switch/swapshelf/).
+2. Pon tus juegos en  sdmc:/switch/swapshelf/Roms/<consola>/
+   (snes, genesis, gba, gbc, gb, nes).
+3. Abre SwapShelf desde el menú Homebrew manteniendo R al iniciar un juego
+   (modo aplicación: todo el rendimiento). Desde el Álbum funciona con menos
+   memoria y la biblioteca lo avisa.
+   La primera vez revisa cada juego (puede tardar con muchos); después abre rápido.
+
+BOTONES
+                      Switch            PC
+   Jugar              A                 Enter
+   Consola            L / R             Q / E
+   Menú del juego     Y                 M     (portada, favorito, controles,
+                                               información, actualizar, borrar)
+   Favorito           X                 F
+   Buscar             -                 Ctrl+F  o  /
+   Orden              +                 O
+   Letra              ZL / ZR           RePág / AvPág
+   Opciones           (recuadro al final de la fila de consolas)   F2
+   Pausa en el juego  + y -             Esc
+
+EN EL JUEGO (pausa)
+   Guardar / cargar estado en 4 ranuras con foto, reiniciar, filtro Zadark HD,
+   controles por consola o por juego. Al salir se guarda el punto exacto y al volver
+   a abrir el juego sigues donde lo dejaste (se desactiva en Opciones).
+
+OPCIONES (se guardan solas en swapshelf.ini)
+   Tema oscuro o claro, color de los menús, consolas visibles, cartuchos por fila,
+   aumento del elegido, imagen del cartucho, seguir donde lo dejé, tamaño y costados
+   del juego, volúmenes, intercambiar A y B, turbo, idioma (español, English,
+   Português) y Acerca de.
+
+CARPETAS QUE SE CREAN SOLAS
+   Partidas             partidas, estados (.estado, .auto) y sus fotos.
+   Caratulas            portadas; puedes poner tu propia imagen <CRC>_caja.bmp.
+   Datos                nombres oficiales (No-Intro), jugados.txt (veces, tiempo y
+                        favoritos) y el cupo de TheGamesDB.
+   Controles, biblioteca.txt y registro.txt.
+
+PORTADAS
+   Se buscan en TheGamesDB con un cupo de consultas por clave. Si se agota, SwapShelf
+   espera y sigue solo más tarde; busca primero favoritos y juegos jugados.
+
+NOVEDADES 0.6
+   - Biblioteca para colecciones grandes: inicio con los últimos 10 jugados, cuadrícula
+     por consola con orden y salto por letra, búsqueda con teclado en pantalla y menú
+     de cada juego (portada, favorito, controles, información, borrar).
+   - Cartuchos nuevos con la banda del color de cada consola; el elegido se agranda
+     y brilla con el color de acento.
+   - Seguir donde lo dejaste, 4 ranuras de estado con foto y fecha, reiniciar juego.
+   - Tiempo jugado por juego.
+   - Opciones dentro de la app, tema claro y oscuro, cinco colores de acento,
+     consolas visibles y tres idiomas.
+   - Genesis europeo a 50 Hz automáticamente.
+   - Portadas: vista previa al elegirlas a mano, solo de la consola correcta, cuidado
+     del cupo de TheGamesDB y carga en segundo plano sin trabar el desplazamiento.
+   - Apertura más rápida (la biblioteca se carga mientras corre la intro), avance
+     automático al mantener la cruceta y sin marco verde alrededor del juego.
+
+LICENCIA
+   GNU GPL versión 3 (LICENSE.txt). El código fuente acompaña cada versión.
+   Núcleos: mGBA (MPL 2.0), FCEUmm (GPLv2+), Supafaust (GPLv2+), clownmdemu (AGPLv3).
+   Datos de No-Intro y TheGamesDB.net. Hecho con SDL2 y libnx / devkitPro.
+   SwapShelf no está afiliado ni respaldado por Nintendo, Sega ni ninguna otra empresa.

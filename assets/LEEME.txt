@@ -1,0 +1,13 @@
+Iconos:
+  icon.png  512x512  -> origen y uso general
+  icon.jpg  256x256  -> icono del juego en el Homebrew Menu de Switch
+  icon.ico           -> icono del .exe en Windows
+  icon.bmp  64x64    -> icono de la ventana en PC
+
+Se generan con:  python3 tools/gen_icono.py
+Es el logo del menu en cuadrado: las dos piezas (cian y roja) con el corte
+diagonal, el relieve invertido y una S en cada pieza, en Inter Black
+(SIL Open Font License 1.1).
+
+icono_sws.svg y logo.svg son del diseno anterior (W con ondas); ya no se usan
+y se pueden borrar.
