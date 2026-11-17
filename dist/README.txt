@@ -1,4 +1,4 @@
-SWAPSHELF (SWS) 0.6
+SWAPSHELF (SWS) 0.7
 ===================
 Homebrew cartridge launcher for Nintendo Switch and PC: SNES, Genesis / Mega Drive,
 GBA, GBC, GB and NES. Free and non-commercial.
@@ -48,6 +48,12 @@ FOLDERS CREATED AUTOMATICALLY
 COVERS
    Covers come from TheGamesDB, with a query quota per key. If it runs out, SwapShelf
    waits and continues later on its own; favorites and played games go first.
+
+WHAT'S NEW IN 0.7
+   - Checks GitHub for updates on launch and asks before installing; on Switch it
+     replaces the .nro and reopens itself. Turn it off in Options (actualizar=no).
+   - Notice the first time a new version opens.
+   - Logo, icon and intro with the new identity (two fused pieces).
 
 WHAT'S NEW IN 0.6
    - Library for large collections: Home with the last 10 played, a grid per console

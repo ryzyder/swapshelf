@@ -56,7 +56,7 @@
 #define BASE_DIR "sdmc:/switch/swapshelf/"
 #endif
 
-#define SWS_VERSION  "0.6"
+#define SWS_VERSION  "0.7"
 #define APP_TITLE    "SwapShelf (v" SWS_VERSION ")"
 #define GBA_W        240
 #define GBA_H        160
@@ -742,7 +742,9 @@ static Uint8 menuBackButton(void) {
 }
 
 
+static Uint32 g_msgLockUntil;  /* un aviso importante no se pisa con otros hasta esta hora */
 static void setMessage(struct App* a, const char* msg) {
+	if (g_msgLockUntil && !SDL_TICKS_PASSED(SDL_GetTicks(), g_msgLockUntil)) return;
 	snprintf(a->message, sizeof(a->message), "%s", msg);
 	a->messageUntil = SDL_GetTicks() + 4000;
 }

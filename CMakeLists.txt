@@ -4,7 +4,7 @@ project(SwapShelf C)
 set(CMAKE_C_STANDARD 11)
 set(APP_NAME    "SwapShelf")
 set(APP_AUTHOR  "Zadark")
-set(APP_VERSION "0.6.0")
+set(APP_VERSION "0.7.0")
 
 # Clave pública de TheGamesDB para las versiones que se distribuyen.
 # NO va en el repositorio: se pasa al compilar, ej. -DSWS_TGDB_KEY=xxxx

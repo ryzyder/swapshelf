@@ -3150,6 +3150,33 @@ static int runLibrary(struct App* a) {
 		}
 	}
 	updStart(a);  /* una sola vez por sesión, en segundo plano */
+	{
+		/* primera vez con esta versión: avisar que se actualizó (Datos/version.txt) */
+		static bool checked = false;
+		if (!checked) {
+			checked = true;
+			char vp[1024], prev[32] = "";
+			pathJoin(vp, sizeof(vp), "Datos/version.txt");
+			FILE* f = fopen(vp, "r");
+			if (f) { if (fgets(prev, sizeof(prev), f)) prev[strcspn(prev, "\r\n")] = 0; fclose(f); }
+			if (strcmp(prev, SWS_VERSION) != 0) {
+				/* sin version.txt pero con biblioteca guardada = venía de la 0.6 o antes */
+				char bp[1024];
+				pathJoin(bp, sizeof(bp), "biblioteca.txt");
+				bool before = prev[0] || fileExists(bp);
+				if (before) {
+					char m[128];
+					if (prev[0]) snprintf(m, sizeof(m), T("SwapShelf se actualiz\xC3\xB3 de la %s a la %s"), prev, SWS_VERSION);
+					else snprintf(m, sizeof(m), T("SwapShelf se actualiz\xC3\xB3 a la %s"), SWS_VERSION);
+					setMessage(a, m);
+					a->messageUntil = SDL_GetTicks() + 8000;
+					g_msgLockUntil = a->messageUntil;  /* que no lo tape otro aviso */
+				}
+				f = fopen(vp, "w");
+				if (f) { fprintf(f, "%s\n", SWS_VERSION); fclose(f); }
+			}
+		}
+	}
 	Uint32 start = SDL_GetTicks();
 	g_listsDirty = true;
 	g_gridCols = a->cfg.gridCols;

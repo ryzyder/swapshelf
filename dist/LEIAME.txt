@@ -1,4 +1,4 @@
-SWAPSHELF (SWS) 0.6
+SWAPSHELF (SWS) 0.7
 ===================
 Lançador de cartuchos homebrew para Nintendo Switch e PC: SNES, Genesis / Mega Drive,
 GBA, GBC, GB e NES. Gratuito e sem fins comerciais.
@@ -48,6 +48,12 @@ PASTAS CRIADAS AUTOMATICAMENTE
 CAPAS
    As capas vêm do TheGamesDB, com uma cota de consultas por chave. Se acabar, o
    SwapShelf espera e continua sozinho mais tarde; favoritos e jogos jogados primeiro.
+
+NOVIDADES DA 0.7
+   - Procura atualizações no GitHub ao abrir e pergunta antes de instalar; no Switch
+     substitui o .nro e abre de novo sozinho. Desligue em Opções (actualizar=no).
+   - Aviso ao abrir uma versão nova pela primeira vez.
+   - Logo, ícone e intro com a nova identidade (duas peças fundidas).
 
 NOVIDADES DA 0.6
    - Biblioteca para coleções grandes: início com os últimos 10 jogados, grade por

@@ -351,6 +351,8 @@ static const char* const TR_TABLE[][3] = {
 	{ "Listo", "Done", "Pronto" },
 	{ "Buscar actualizaciones", "Check for updates", "Procurar atualiza\xC3\xA7\xC3\xB5" "es" },
 	{ "Al abrir, revisa en GitHub si hay una versi\xC3\xB3n nueva y te pregunta antes de instalarla.", "On launch, checks GitHub for a new version and asks before installing it.", "Ao abrir, verifica no GitHub se h\xC3\xA1 uma vers\xC3\xA3o nova e pergunta antes de instalar." },
+	{ "SwapShelf se actualiz\xC3\xB3 de la %s a la %s", "SwapShelf was updated from %s to %s", "O SwapShelf foi atualizado da %s para a %s" },
+	{ "SwapShelf se actualiz\xC3\xB3 a la %s", "SwapShelf was updated to %s", "O SwapShelf foi atualizado para a %s" },
 };
 #define TR_COUNT ((int) (sizeof(TR_TABLE) / sizeof(TR_TABLE[0])))
 

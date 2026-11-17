@@ -345,4 +345,6 @@ TR = {
 "Listo": ("Done", "Pronto"),
 "Buscar actualizaciones": ("Check for updates", "Procurar atualizações"),
 "Al abrir, revisa en GitHub si hay una versión nueva y te pregunta antes de instalarla.": ("On launch, checks GitHub for a new version and asks before installing it.", "Ao abrir, verifica no GitHub se há uma versão nova e pergunta antes de instalar."),
+"SwapShelf se actualizó de la %s a la %s": ("SwapShelf was updated from %s to %s", "O SwapShelf foi atualizado da %s para a %s"),
+"SwapShelf se actualizó a la %s": ("SwapShelf was updated to %s", "O SwapShelf foi atualizado para a %s"),
 }
